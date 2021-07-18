@@ -1,0 +1,11 @@
+@mixin flexible( $a, $b, $c, $d, $e:center ){
+	display: flex;
+	flex-flow: $a $b;
+	justify-content: $c;
+	align-items: $d;
+	align-content: $e;
+}
+
+@mixin transitionSimple($m,$s,$t){
+    transition: $m $s $t
+}
