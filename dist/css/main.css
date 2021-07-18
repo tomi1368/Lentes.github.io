@@ -1,3 +1,194 @@
+.container {
+  width: 90%;
+  margin: auto;
+}
 
+*, ::after, ::before {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+  font-family: Montserrat, sans-serif;
+  font-size: 0.75rem;
+  outline: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+a {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+}
+
+video {
+  display: flex;
+  object-fit: cover;
+  object-position: center center;
+}
+
+audio {
+  display: flex;
+}
+
+p a {
+  display: inline;
+}
+
+li {
+  list-style-type: none;
+}
+
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  hyphens: auto;
+  background-color: grey;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  hyphens: auto;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+form input, form textarea, form select {
+  hyphens: auto;
+  background-color: transparent;
+  appearance: none;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+.nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 4;
+  transition: 0.6s ease-in-out;
+  background-color: transparent;
+}
+.nav-container .nav-bar {
+  height: 74px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: auto;
+}
+.nav-container .nav-bar__logo {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: auto;
+  width: 273px;
+  height: 39px;
+  cursor: pointer;
+  position: relative;
+}
+.nav-container .nav-bar__list {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: auto;
+}
+.nav-container .nav-bar__list__items {
+  margin: 0 2rem;
+  color: #1c1b1b;
+  font-size: 12px;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  font-style: normal;
+  transition: transitionSimple(color, 0.3, ease-in-out);
+  text-transform: uppercase;
+}
+.nav-container .nav-bar__list__items::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background: #1c1b1b;
+  display: block;
+  margin: auto;
+  transition: width 0.5s ease-in-out;
+}
+.nav-container .nav-bar__list__items:hover::after {
+  width: 100%;
+}
+.nav-container .nav-bar__hambuger {
+  display: none;
+  position: fixed;
+  bottom: 3.125rem;
+  right: 2.1875rem;
+  height: 4rem;
+  width: 4rem;
+  background-color: bisque;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: auto;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 999;
+}
+.nav-container .nav-bar__hambuger__line {
+  position: absolute;
+  height: 2px;
+  width: 80%;
+  display: flex;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s, opacity 0.4s;
+}
+.nav-container .nav-bar__hambuger__line::after {
+  content: " ";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  top: 8px;
+  background-color: black;
+}
+.nav-container .nav-bar__hambuger__line::before {
+  content: " ";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  top: -8px;
+  background-color: black;
+}
+.nav-container .nav-bar__hambuger__line.open {
+  transform: rotate(720deg);
+  background: transparent;
+}
+.nav-container .nav-bar__hambuger__line.open::before {
+  transform: rotate(45deg) translate(5px, 8px);
+}
+.nav-container .nav-bar__hambuger__line.open::after {
+  width: 28px;
+  transform: rotate(-45deg) translate(3px, -7px);
+}
 
 /*# sourceMappingURL=main.css.map */

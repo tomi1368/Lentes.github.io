@@ -1,4 +1,6 @@
-@mixin flexible( $a, $b, $c, $d, $e:center ){
+@use "./vars" as s;
+
+@mixin flexible( $a, $b, $c, $d, $e:auto){
 	display: flex;
 	flex-flow: $a $b;
 	justify-content: $c;
@@ -8,4 +10,14 @@
 
 @mixin transitionSimple($m,$s,$t){
     transition: $m $s $t
+}
+
+@mixin headerLetter(){
+	font-size: 12px;
+	color: s.$main-color;
+	font-weight: 600;
+	letter-spacing: .2em;
+	font-style: normal;
+	transition: transitionSimple(color,0.3,ease-in-out);
+	text-transform:uppercase;
 }

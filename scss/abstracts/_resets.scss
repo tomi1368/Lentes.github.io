@@ -6,12 +6,12 @@
     vertical-align: baseline;
     font-family: Montserrat,sans-serif;
     font-size:.75rem;
+    outline: none;
 }
 img{
     display: block;	
     max-width: 100%;
     min-width: 100%;
-    width: 100%;
     object-fit: cover;
     object-position: center;
 }
@@ -44,7 +44,7 @@ html{
 
 body{ 
     hyphens: auto;
-    
+    background-color:grey;
 
 }
 h1 , h2, h3 , h4 , h5, h6{ 

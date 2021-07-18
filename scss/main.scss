@@ -9,18 +9,24 @@
     width:100%;
     z-index: 4;
     transition: 0.6s ease-in-out;
+    background-color:transparent;
     .nav-bar{
         height:74px;
-        @include m.flexible(row,nowrap,center,space-between);
+        @include m.flexible(row,nowrap,space-between,center);
         &__logo{
-            height:24px;
-            width: 24px;
+            @include m.flexible(row, nowrap, center, center,);
+            width: 273px;
+            height: 39px;
+            cursor: pointer;
+            position: relative;
         }
         &__list{
             @include m.flexible(row,nowrap,center,center);
+            //MediaQuerie para poner lista fixed
             &__items{
-                padding: 0 .4rem;
-                color:$letter-color;
+                margin: 0 2rem;
+                color:v.$letter-color;
+                @include m.headerLetter();
                 &::after{
                     content:"";
                     width:0;
@@ -35,18 +41,20 @@
                 }
             }
         }
-        .menu{
+        &__hambuger{
+            display:none;
             position:fixed;
-            bottom: 50px;
-            right: 50px;
-            height:50px;
-            width:50px;
+            bottom: 3.125rem;
+            right: 2.1875rem;
+            height:4rem;
+            width:4rem;
             background-color:bisque;
-            @include m.flexible(row,nowrap,center,space-between);
+            @include m.flexible(row,nowrap,center,center);
             border-radius: 50%;
             cursor: pointer;
             z-index: 999;
-            &-line{
+            //Media querie para spawnear el hambuger en la misma width que el fixed list
+            &__line{
                 position: absolute;
                 height:2px;
                 width:80%;
@@ -54,7 +62,7 @@
                 background-color:black;
                 justify-content: center;
                 align-items:center;
-                transition: all 0.4s;
+                transition: transform .4s, opacity .4s;
                 &::after{
                     content:" ";
                     position:absolute;
@@ -62,7 +70,6 @@
                     width:100%;
                     top:8px;
                     background-color:black;
-        
                 }
                 &::before{ 
                     content:" ";
@@ -87,7 +94,6 @@
         }
     }
 }
-
 
 
 
