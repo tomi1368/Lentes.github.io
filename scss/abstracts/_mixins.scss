@@ -12,12 +12,14 @@
     transition: $m $s $t
 }
 
-@mixin headerLetter(){
-	font-size: 12px;
-	color: s.$main-color;
+@mixin headerLetter($w){
+	font-size: $w;
 	font-weight: 600;
 	letter-spacing: .2em;
 	font-style: normal;
 	transition: transitionSimple(color,0.3,ease-in-out);
 	text-transform:uppercase;
+}
+@mixin headerText($w){
+	@include headerLetter($w);
 }
