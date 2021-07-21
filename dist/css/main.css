@@ -85,7 +85,6 @@ ul {
   width: 100%;
   max-width: 100%;
   z-index: 4;
-  transition: 0.6s ease-in-out;
   background-color: transparent;
   color: #ffffff;
   transition: color 0.6s ease-in-out, background-color 0.6s ease-in-out;
@@ -93,6 +92,15 @@ ul {
 .nav-container:hover {
   color: #1c1b1b;
   background-color: #ffffff;
+}
+@media screen and (max-width: 1237px) {
+  .nav-container:hover {
+    background-color: transparent;
+  }
+}
+.nav-container.activar {
+  background-color: #ffffff;
+  color: #1c1b1b;
 }
 .nav-container .nav-bar {
   height: 74px;
@@ -103,16 +111,33 @@ ul {
   align-items: center;
   align-content: auto;
 }
+@media screen and (max-width: 1237px) {
+  .nav-container .nav-bar {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: auto;
+  }
+}
 .nav-container .nav-bar__logo {
+  width: 273px;
+  cursor: pointer;
+  position: relative;
+}
+.nav-container .nav-bar__logo a {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
   align-content: auto;
-  width: 273px;
-  height: 39px;
-  cursor: pointer;
+  width: 100%;
+  height: 100%;
   position: relative;
+}
+.nav-container .nav-bar__logo a img:nth-child(1) {
+  position: absolute;
+  opacity: 0;
 }
 .nav-container .nav-bar__list {
   display: flex;
@@ -120,6 +145,32 @@ ul {
   justify-content: center;
   align-items: center;
   align-content: auto;
+}
+@media screen and (max-width: 1237px) {
+  .nav-container .nav-bar__list {
+    position: fixed;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    opacity: 0;
+    color: transparent;
+    visibility: hidden;
+    clip-path: circle(0% at 50% 50%);
+    transition: color 1.5s ease-in-out, visibility 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), clip-path 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  .nav-container .nav-bar__list.activo {
+    visibility: visible;
+    opacity: 1;
+    color: #ffffff;
+    clip-path: circle(100% at 50% 50%);
+  }
 }
 .nav-container .nav-bar__list__items {
   margin: 0 2rem;
@@ -143,12 +194,12 @@ ul {
   width: 100%;
 }
 .nav-container .nav-bar__hambuger {
-  display: none;
+  visibility: hidden;
   position: fixed;
   bottom: 3.125rem;
   right: 2.1875rem;
-  height: 4rem;
-  width: 4rem;
+  height: 50px;
+  width: 50px;
   background-color: #efefef;
   display: flex;
   flex-flow: row nowrap;
@@ -159,14 +210,16 @@ ul {
   cursor: pointer;
   z-index: 999;
 }
+@media screen and (max-width: 1237px) {
+  .nav-container .nav-bar__hambuger {
+    visibility: visible;
+  }
+}
 .nav-container .nav-bar__hambuger__line {
   position: absolute;
   height: 2px;
   width: 80%;
-  display: flex;
   background-color: black;
-  justify-content: center;
-  align-items: center;
   transition: transform 0.4s, opacity 0.4s;
 }
 .nav-container .nav-bar__hambuger__line::after {
@@ -190,22 +243,27 @@ ul {
   background: transparent;
 }
 .nav-container .nav-bar__hambuger__line.open::before {
-  transform: rotate(45deg) translate(5px, 8px);
+  position: absolute;
+  transform: rotate(45deg) translate(6px, 5px);
 }
 .nav-container .nav-bar__hambuger__line.open::after {
-  width: 28px;
-  transform: rotate(-45deg) translate(3px, -7px);
+  transform: rotate(-45deg) translate(5px, -9px);
+  position: absolute;
+  left: 3px;
+  top: 10px;
 }
 
 .slide-show {
-  position: relative;
+  position: absolute;
   max-width: 100%;
   width: 100%;
   overflow: hidden;
+  top: 0;
 }
 .slide-show__slider {
-  width: 300%;
+  width: 400%;
   display: flex;
+  cursor: grabbing;
 }
 .slide-show__slider__slide {
   width: 100%;
@@ -222,7 +280,7 @@ ul {
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.1;
+  opacity: 0.2;
   background-color: black;
 }
 .slide-show__slider__slide__info {
@@ -284,6 +342,29 @@ ul {
   transform-origin: center;
   z-index: -1;
   transition: transform 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+.slide-show__buttons {
+  position: absolute;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: auto;
+  bottom: 28px;
+  right: 24px;
+  left: auto;
+}
+.slide-show__buttons__item {
+  display: inline-block;
+  height: 1rem;
+  width: 1rem;
+  background-color: transparent;
+  border-radius: 50%;
+  margin: 0 2rem;
+  border: 2px solid #0075bb;
+}
+.slide-show__buttons__item.active {
+  background-color: black;
 }
 
 /*# sourceMappingURL=main.css.map */
