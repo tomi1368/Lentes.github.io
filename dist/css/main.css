@@ -264,6 +264,7 @@ ul {
   width: 400%;
   display: flex;
   cursor: grabbing;
+  transition: all 0.6s;
 }
 .slide-show__slider__slide {
   width: 100%;
