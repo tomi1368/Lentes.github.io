@@ -7,36 +7,25 @@ const slider = document.querySelector(".slide-show__slider"),
         slideMarkers = document.querySelectorAll(".slide-show__buttons__item"),
         imgLogo = document.querySelectorAll(".nav-bar__logo a img");
 //Slider//
-let i = 0,
-e = 0;
-const move = () =>{
-    slideMarkers.forEach(e =>{
-        e.classList.remove("active");
-    })
-    if (e == 3) e = 2
-    slider.style.marginLeft = `${-100*i}%`
-    slider.style.transition = "all .6s"
-    slideMarkers[e].classList.add("active");
-    i++
-    e++
-    if (i === slides.length){
-        slideMarkers[2].classList.remove("active");
-        slideMarkers[0].classList.add("active");
-       setTimeout(() =>{
-        slider.style.marginLeft = `0%`;
-        slider.style.transition = "all 0s";
-        e = 0
-        i =0;
-        /* slideMarkers[2].classList.remove("active");
-        slideMarkers[e].classList.add("active"); */
-       },2000)
-    }
+const move = (array) =>{
+    for (i = 0; i < array.length; i++){
+        if(array[i].classList.contains('active')){
+            array[i].classList.remove('active')
+            i < array.length - 1 ? nextItem = array[i + 1] : nextItem = array[0]
+            current = i;
+    }   }   
+    setActive(nextItem)
+    setSlide(current)
 }
-
-
-setInterval(function(){
-    move()
-}, 5000 )
+slideMarkers.forEach( ( mark, i ) => {
+    mark.onclick = () => { 
+        slideMarkers.forEach(e => e.classList.remove('active'))
+        setActive(mark)
+        setSlide(i)
+}   }   )
+setInterval( () => move(slideMarkers), 5000 )
+const setSlide = (i) => { slider.style.marginLeft = `${-100 * i}%`}
+const setActive = (el) => { el.classList.add('active') }
 
 //End Slider
 
