@@ -11,11 +11,10 @@ const move = (array) =>{
     for (i = 0; i < array.length; i++){
         if(array[i].classList.contains('active')){
             array[i].classList.remove('active')
-            i < array.length - 1 ? nextItem = array[i + 1] : nextItem = array[0]
-            current = i;
+            i < array.length - 1 ? nextItem = i + 1 : nextItem = 0
     }   }   
-    setActive(nextItem)
-    setSlide(current)
+    setSlide(nextItem)
+    setActive(array[nextItem])
 }
 slideMarkers.forEach( ( mark, i ) => {
     mark.onclick = () => { 
