@@ -2,7 +2,15 @@ $main-color:#ffffff;
 $grey-color: #efefef;
 $letter-color: #1c1b1b;
 $width-card:400px;
-
+$p-section: 0 0 2rem 0;
+@mixin gresponsive($g,$w,$j,$a){
+    display:grid;
+    gap:$g $w;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-auto-flow: row dense;
+    align-items: center;
+    justify-content:center;
+}
 
 .container{
     width: 90%;

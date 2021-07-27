@@ -1,3 +1,4 @@
+@use "vars" as v;
 *, ::after,::before{
     margin:0;
     padding:0;
@@ -44,7 +45,7 @@ html{
 
 body{ 
     hyphens: auto;
-    background-color:grey;
+    background-color:v.$main-color;
 
 }
 h1 , h2, h3 , h4 , h5, h6{ 
