@@ -14,6 +14,7 @@ header{
     z-index: 4;
     background-color:transparent;
     color: v.$main-color;
+    box-shadow: 0 2px 4px -1px rgba(100, 100, 100, 0.25); 
     transition: color 0.6s ease-in-out, background-color 0.6s ease-in-out;
     &:hover{
         color:v.$letter-color;
@@ -200,41 +201,7 @@ header{
                     @include m.headerText(2rem);
                     margin-bottom:41px;
                 }
-                a{
-                    position: relative;
-                    @include m.headerLetter(1rem);
-                    margin-top:20px ;
-                    padding: 14px 28px;
-                    border: 1px solid transparent;
-                    background-color: transparent;
-                    z-index: 1;
-                    color: white;
-                    transition: color .45s cubic-bezier(.785, .135, .15, .86),border .45s cubic-bezier(.785, .135, .15, .86);
-                    &:hover{
-                        color: #0075bb;
-                        border: 1px solid #0075bb;
-                    }
-                    &:hover::before{
-                        transform: scaleX(0);
-                    }
-                    &::before{
-                        position: absolute;
-                        background-color: #0075bb;
-                        border: 1px solid #0075bb;
-                        content: " ";
-                        left:0;
-                        top: 0;
-                        bottom: 0;
-                        right: 0;
-                        width: 100%;
-                        height: 100%;
-                        transform-origin: center;
-                        z-index: -1;
-                        transition:transform .45s cubic-bezier(.785, .135, .15, .86);
-                        
-                    }
                 
-                }
             }
         }
     }
@@ -276,16 +243,19 @@ main h1{
     &__product{
         width: 100%;
         &__img{
-            @include m.flexible(row,nowrap,center,center);
             height:200px;
-            
+            width: 100%;
             position: relative;
+            @media screen and (min-width:636px ) and (max-width:747px){
+                height:300px;
+            }
             img{
                 position: absolute;
                 top: 0;
-                display: block;
+                left: 0;
                 width: 100%;
                 height: 100%;
+                object-fit: cover;
             }
         }
         &__info{
@@ -312,7 +282,60 @@ main h1{
     }
 }
 
+.testimonial{
+    width: 100%;
+    background-color:#efefef;
+    height: 300px;
+    overflow: hidden;
+    text-align:center;
+    margin: 10rem 0;
+    @include m.headerText(1rem);
+    &-container{
+        height:500%;
+        @include m.flexible(column,nowrap,center,center);
+        &__users{
+            @include m.flexible(column,nowrap,center,center);
+            gap: 2rem 0;
+            height:100%;
+        }
+    }
+}
+.gallery{
+    @include v.gresponsive(5rem,5rem,center,center);
+    grid-auto-rows: minmax(200px,auto);
+    align-items: stretch;
+    &-img{ 
+        @include m.flexible(row,nowrap,stre,center);
+        &:nth-child(2){
+            grid-row: span 2;
+        }
+        @media screen and (min-width:636px ) and (max-width:747px){
+            height:300px;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }     
+    }
+    
+}
 
 
 
 
+@keyframes fade-in{
+	0%{
+		transform:translateY(250px);
+		opacity: 0;
+	}
+	10%{
+		transform: translateY(0);
+		opacity:1;
+	}
+    80%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-250px);
+    }
+}
