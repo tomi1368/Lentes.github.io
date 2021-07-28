@@ -1,4 +1,4 @@
-@use "mixins" as m;
+@use "./mixins" as v;
 $main-color:#ffffff;
 $grey-color: #efefef;
 $letter-color: #1c1b1b;
@@ -20,7 +20,7 @@ $p-section: 0 0 2rem 0;
 
 .btn{
     position: relative;
-    @include m.headerLetter(1rem);
+    @include v.headerLetter(1rem);
     margin-top:20px ;
     padding: 14px 28px;
     border: 1px solid transparent;

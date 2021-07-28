@@ -300,27 +300,83 @@ main h1{
         }
     }
 }
-.gallery{
-    @include v.gresponsive(5rem,5rem,center,center);
-    grid-auto-rows: minmax(200px,auto);
-    align-items: stretch;
-    &-img{ 
-        @include m.flexible(row,nowrap,stre,center);
-        &:nth-child(2){
-            grid-row: span 2;
-        }
-        @media screen and (min-width:636px ) and (max-width:747px){
-            height:300px;
-        }
-        img{
-            width: 100%;
-            height: 100%;
-        }     
+
+section{
+    text-align:center;
+    h2{
+        @include m.headerText(20px);
+        font-weight: 500;
+        margin-bottom: 20px;
     }
+    h3{
+        @include m.headerText(12px);
+        font-weight: 500;
+        letter-spacing:0;
+        text-transform:lowercase;
+        margin-bottom: 30px;
+    }
+    .gallery{
+        @include v.gresponsive(5rem,5rem,center,center);
+        grid-auto-rows: minmax(200px,auto);
+        align-items: stretch;
+        &-img{ 
+            @include m.flexible(row,nowrap,center,center);
+            &:nth-child(2){
+                grid-row: span 2;
+            }
+            @media screen and (min-width:636px ) and (max-width:747px){
+                height:300px;
+            }
+            img{
+                width: 100%;
+                height: 100%;
+            }     
+        }
+    }
+    .btn-gallery{
+        margin: 8rem auto;
+        width:200px;
+        @include m.flexible(row,nowrap,center,center);
     
+    } 
 }
+footer{
+    background-color:#efefef;    
+.footer-sections{
+    @include m.flexible(column,nowrap,center,center);
+    gap: 10rem 0;
+    .footer-info{
+        width: 100%;
+        gap:0 10rem;
+        @include m.flexible(row,wrap,center,center);
+        @media screen and (max-width: 564px){
+            @include m.flexible(column,nowrap,center,center);
+        }
+        &__social{
+            text-align: center;
+            h3{
+                @include m.headerText(15px);
+                font-weight: 500;
+            }
+            &__list{
+                @include m.flexible(row,wrap,center,center);
+                &__link{
+                    font-size:20px;
+                    margin-right: 1rem;
+                }
+            }
+        }
+        &__purchase{
+            text-align: center;
+            h2{
+                @include m.headerText(15px); 
+                font-weight: 500;
+            }
+        }
 
-
+    }
+}
+}
 
 
 @keyframes fade-in{
