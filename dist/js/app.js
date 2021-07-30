@@ -31,7 +31,7 @@ slideMarkers.forEach( ( mark, i ) => {
         setSlide(i)
 }   }   )
 setInterval( () => move(slideMarkers), 5000)
-/* setInterval( () => move2(testSlider), 10000) */
+setInterval( () => move2(testSlider), 10000)
 const setSlide = (i) => { slider.style.marginLeft = `${-100 * i}%`}
 const setActive = (el) => { el.classList.add('active') }
 const setSlideTest = (i) => { 
