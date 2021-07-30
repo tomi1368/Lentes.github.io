@@ -42,10 +42,16 @@ header{
         @media screen and (max-width: 1237px){
             @include m.flexible(row,nowrap,center,center);
         }
+        @media screen and (max-width: 640px){
+            height:0;
+        }
         &__logo{
             width: 273px;
             cursor: pointer;
             position:relative;
+            @media screen and (max-width: 640px){
+                max-width: 120px;
+            }
             a{
                 width: 100%;
                 height: 100%;
@@ -161,20 +167,25 @@ header{
     width: 100%;
     overflow: hidden;
     top: 0;
-    padding: v.$p-section;
     &__slider{ 
         width:400%;
         display: flex;
         cursor: grabbing;
         transition: all .6s;
+        
         &__slide{
             width: 100%;
-            max-height: 1200px;
             //media query hacer mas alto el slideshow
             position: relative;
-           
             &__img{
                 position: relative;
+                @media screen and (max-width:640px){
+                    max-height: 900px;
+                    height:900px;
+                    img{
+                        height:100%;
+                    }
+                }
                  //Media query mas alto el slideshow
                 
                 &::before{
@@ -197,9 +208,21 @@ header{
                 text-align: left;
                 line-height:1.65;
                 max-width:625px;
+                @media screen and (max-width:640px){
+                    padding: 0 2rem;
+                    a{
+                        text-align: center;
+                        padding: 7px 14px;
+                        @include m.headerText(.7rem);
+                    }
+                }
                 h3{
                     @include m.headerText(2rem);
                     margin-bottom:41px;
+                    @media screen and (max-width:640px){
+                        @include m.headerText(1rem);
+                        margin-bottom:20px; 
+                    }
                 }
                 
             }
@@ -211,7 +234,14 @@ header{
         bottom: 28px;
         right: 24px;
         left: auto;
-
+        @media screen and (max-width:640px){
+            right: auto;
+            &__item{
+                height:.3rem;
+                width: .3rem;
+                margin: 0 1rem;
+            }
+        }
         &__item{
             display: inline-block;
             height:1rem;
@@ -220,6 +250,11 @@ header{
             border-radius: 50%;
             margin: 0 2rem;
             border:2px solid #0075bb;
+            @media screen and (max-width:640px){
+                    height:.8rem;
+                    width: .8rem;
+                    margin: 0 2rem;
+            }
             &.active{
                 background-color: black;
             }
@@ -341,22 +376,34 @@ section{
     } 
 }
 footer{
-    background-color:#efefef;    
-.footer-sections{
-    @include m.flexible(column,nowrap,center,center);
-    gap: 10rem 0;
+    background-color:#efefef;
+    padding:4rem;
+    .footer-map{
+        width: 100%;
+        @include m.flexible(row,nowrap,center,center);
+        margin-bottom: 8rem;
+       @media screen and (max-width:564){
+           margin-bottom:0;
+       }
+    }    
     .footer-info{
         width: 100%;
-        gap:0 10rem;
-        @include m.flexible(row,wrap,center,center);
+        @include m.flexible(row,nowrap,space-between,center);
         @media screen and (max-width: 564px){
             @include m.flexible(column,nowrap,center,center);
+
         }
         &__social{
             text-align: center;
+            align-self: center;
+            @media screen and (max-width: 564px){
+                padding : 10rem 0;
+            }
+           
             h3{
                 @include m.headerText(15px);
                 font-weight: 500;
+                margin-bottom:1rem;
             }
             &__list{
                 @include m.flexible(row,wrap,center,center);
@@ -367,15 +414,19 @@ footer{
             }
         }
         &__purchase{
+            
             text-align: center;
+            margin-bottom: 30px;
+           
             h2{
                 @include m.headerText(15px); 
                 font-weight: 500;
+                margin-bottom:.5rem;
             }
         }
 
     }
-}
+
 }
 
 

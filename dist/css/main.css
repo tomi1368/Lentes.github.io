@@ -170,10 +170,20 @@ header {
     align-content: auto;
   }
 }
+@media screen and (max-width: 640px) {
+  .nav-container .nav-bar {
+    height: 0;
+  }
+}
 .nav-container .nav-bar__logo {
   width: 273px;
   cursor: pointer;
   position: relative;
+}
+@media screen and (max-width: 640px) {
+  .nav-container .nav-bar__logo {
+    max-width: 120px;
+  }
 }
 .nav-container .nav-bar__logo a {
   width: 100%;
@@ -305,7 +315,6 @@ header {
   width: 100%;
   overflow: hidden;
   top: 0;
-  padding: 0 0 2rem 0;
 }
 .slide-show__slider {
   width: 400%;
@@ -315,11 +324,19 @@ header {
 }
 .slide-show__slider__slide {
   width: 100%;
-  max-height: 1200px;
   position: relative;
 }
 .slide-show__slider__slide__img {
   position: relative;
+}
+@media screen and (max-width: 640px) {
+  .slide-show__slider__slide__img {
+    max-height: 900px;
+    height: 900px;
+  }
+  .slide-show__slider__slide__img img {
+    height: 100%;
+  }
 }
 .slide-show__slider__slide__img::before {
   content: " ";
@@ -341,6 +358,21 @@ header {
   line-height: 1.65;
   max-width: 625px;
 }
+@media screen and (max-width: 640px) {
+  .slide-show__slider__slide__info {
+    padding: 0 2rem;
+  }
+  .slide-show__slider__slide__info a {
+    text-align: center;
+    padding: 7px 14px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    font-style: normal;
+    transition: transitionSimple(color, 0.3, ease-in-out);
+    text-transform: uppercase;
+  }
+}
 .slide-show__slider__slide__info h3 {
   font-size: 2rem;
   font-weight: 600;
@@ -349,6 +381,17 @@ header {
   transition: transitionSimple(color, 0.3, ease-in-out);
   text-transform: uppercase;
   margin-bottom: 41px;
+}
+@media screen and (max-width: 640px) {
+  .slide-show__slider__slide__info h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    font-style: normal;
+    transition: transitionSimple(color, 0.3, ease-in-out);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
 }
 .slide-show__buttons {
   position: absolute;
@@ -361,6 +404,16 @@ header {
   right: 24px;
   left: auto;
 }
+@media screen and (max-width: 640px) {
+  .slide-show__buttons {
+    right: auto;
+  }
+  .slide-show__buttons__item {
+    height: 0.3rem;
+    width: 0.3rem;
+    margin: 0 1rem;
+  }
+}
 .slide-show__buttons__item {
   display: inline-block;
   height: 1rem;
@@ -369,6 +422,13 @@ header {
   border-radius: 50%;
   margin: 0 2rem;
   border: 2px solid #0075bb;
+}
+@media screen and (max-width: 640px) {
+  .slide-show__buttons__item {
+    height: 0.8rem;
+    width: 0.8rem;
+    margin: 0 2rem;
+  }
 }
 .slide-show__buttons__item.active {
   background-color: black;
@@ -558,26 +618,32 @@ section .btn-gallery {
 
 footer {
   background-color: #efefef;
+  padding: 4rem;
 }
-footer .footer-sections {
+footer .footer-map {
+  width: 100%;
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
   align-content: auto;
-  gap: 10rem 0;
+  margin-bottom: 8rem;
 }
-footer .footer-sections .footer-info {
+@media screen and (max-width: 564) {
+  footer .footer-map {
+    margin-bottom: 0;
+  }
+}
+footer .footer-info {
   width: 100%;
-  gap: 0 10rem;
   display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
+  flex-flow: row nowrap;
+  justify-content: space-between;
   align-items: center;
   align-content: auto;
 }
 @media screen and (max-width: 564px) {
-  footer .footer-sections .footer-info {
+  footer .footer-info {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -585,10 +651,16 @@ footer .footer-sections .footer-info {
     align-content: auto;
   }
 }
-footer .footer-sections .footer-info__social {
+footer .footer-info__social {
   text-align: center;
+  align-self: center;
 }
-footer .footer-sections .footer-info__social h3 {
+@media screen and (max-width: 564px) {
+  footer .footer-info__social {
+    padding: 10rem 0;
+  }
+}
+footer .footer-info__social h3 {
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -596,22 +668,24 @@ footer .footer-sections .footer-info__social h3 {
   transition: transitionSimple(color, 0.3, ease-in-out);
   text-transform: uppercase;
   font-weight: 500;
+  margin-bottom: 1rem;
 }
-footer .footer-sections .footer-info__social__list {
+footer .footer-info__social__list {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
   align-content: auto;
 }
-footer .footer-sections .footer-info__social__list__link {
+footer .footer-info__social__list__link {
   font-size: 20px;
   margin-right: 1rem;
 }
-footer .footer-sections .footer-info__purchase {
+footer .footer-info__purchase {
   text-align: center;
+  margin-bottom: 30px;
 }
-footer .footer-sections .footer-info__purchase h2 {
+footer .footer-info__purchase h2 {
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -619,6 +693,7 @@ footer .footer-sections .footer-info__purchase h2 {
   transition: transitionSimple(color, 0.3, ease-in-out);
   text-transform: uppercase;
   font-weight: 500;
+  margin-bottom: 0.5rem;
 }
 
 @keyframes fade-in {
