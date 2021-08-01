@@ -90,6 +90,7 @@ header{
             &__items{
                 margin: 0 2rem;
                 @include m.headerLetter(12px);
+                transition: color .3s ease-in-out ;
                 &::after{
                     content:"";
                     width:0;
@@ -101,6 +102,11 @@ header{
                 }
                 &:hover::after{
                     width:100%;
+                }
+                @media screen and (max-width: 1237px){
+                    &::after{
+                        background:v.$main-color;                        
+                    }
                 }
             }
         }
@@ -167,12 +173,12 @@ header{
     width: 100%;
     overflow: hidden;
     top: 0;
+    animation: scaleHeader 1.4s ease-out;
     &__slider{ 
         width:400%;
         display: flex;
         cursor: grabbing;
         transition: all .6s;
-        
         &__slide{
             width: 100%;
             //media query hacer mas alto el slideshow
@@ -274,9 +280,18 @@ main h1{
     @include v.gresponsive(10rem,6rem,center,center);
     grid-auto-flow: row dense;
     overflow: hidden;
-    padding: v.$p-section;
+    padding: v.$p-section;transition: transform 1.3s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 1.3s cubic-bezier(0.075, 0.82, 0.165, 1); 
+    
     &__product{
         width: 100%;
+        @media screen and (max-width:746px){
+            justify-self: center;
+            max-width:500px;  
+        }
+        @media screen and (max-width:636px){
+            justify-self: center;
+            max-width:300px;  
+        }
         &__img{
             height:200px;
             width: 100%;
@@ -320,7 +335,7 @@ main h1{
 .testimonial{
     width: 100%;
     background-color:#efefef;
-    height: 300px;
+    height: 400px;
     overflow: hidden;
     text-align:center;
     margin: 10rem 0;
@@ -338,6 +353,7 @@ main h1{
 
 section{
     text-align:center;
+    margin-bottom: 15rem;
     h2{
         @include m.headerText(20px);
         font-weight: 500;
@@ -377,7 +393,13 @@ section{
 }
 footer{
     background-color:#efefef;
-    padding:4rem;
+    padding:8rem;
+    h2{
+        text-align: center;
+        @include m.headerText(15px);
+        margin-bottom: 4rem;
+        font-weight: 500;
+    }
     .footer-map{
         width: 100%;
         @include m.flexible(row,nowrap,center,center);
@@ -411,8 +433,29 @@ footer{
             &__list{
                 @include m.flexible(row,wrap,center,center);
                 &__link{
-                    font-size:20px;
+                    display: block;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    background-color:#fff;
                     margin-right: 1rem;
+                    color:#000;
+                    font-size:20px;
+                    line-height:30px;
+                    text-align:center;
+                    transition: color .6s cubic-bezier(0.075, 0.82, 0.165, 1), background-color .6s cubic-bezier(0.075, 0.82, 0.165, 1);
+                    &:nth-child(1):hover{
+                        background-color:#e4405f;
+                        color:#fff;
+                    }
+                    &:nth-child(2):hover{
+                        background-color:#3b5999;
+                        color:#fff;
+                    }
+                    &:nth-child(3):hover{
+                        background-color:#1DA1F2;
+                        color:#fff;
+                    }
                 }
             }
         }
@@ -434,7 +477,7 @@ footer{
 
 }
 
-
+//Animaciones
 @keyframes fade-in{
 	0%{
 		transform:translateY(250px);
@@ -446,8 +489,21 @@ footer{
 	}
     80%{
         transform: translateY(0);
+        opacity:1;
     }
     100%{
         transform: translateY(-250px);
+        opacity: 0;
+    }
+}
+
+@keyframes scaleHeader{
+    from{
+        transform: matrix(1.5, 0, 0, 1.5, 0, 0);
+        opacity: 0;
+    }
+    to{
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        opacity:1;
     }
 }

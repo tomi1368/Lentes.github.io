@@ -25,11 +25,10 @@
           </a>
         </div>
         <ul class="nav-bar__list">
-          <li class="nav-bar__list__items">Hola</li>
-          <li class="nav-bar__list__items">Todo Bien</li>
-          <li class="nav-bar__list__items">Perro</li>
-          <li class="nav-bar__list__items">Messi</li>
-          <li class="nav-bar__list__items">Ronaldo</li>
+          <li class="nav-bar__list__items active-link" data-pos="header"><a href="#header">Home</a></li>
+          <li class="nav-bar__list__items" data-pos="products"><a href="#products">Productos</a></li>
+          <li class="nav-bar__list__items" data-pos="gallery"><a href="#gallery">Galeria</a></li>
+          <li class="nav-bar__list__items" data-pos="contact"><a href="#contact">Contactanos</a></li>
         </ul>
         <div class="nav-bar__hambuger">
             <div class="nav-bar__hambuger__line"></div>
@@ -39,7 +38,7 @@
     <div class="nav-bar__hambuger">
       <div class="nav-bar__hambuger__line"></div>
     </div>
-    <header>
+    <header id="header" class="section">
       <div class="slide-show">
         <div class="slide-show__slider">
           <div class="slide-show__slider__slide">
@@ -87,9 +86,9 @@
         </div>
       </div>
     </header>
-    <main>
+    <main id="products" class="section">
       <h1>Lo mas vendido</h1>
-      <div class="show-products container">
+      <div class="show-products reveal container">
         <div class="show-products__product">
           <div class="show-products__product__img"><img src="//cdn.shopify.com/s/files/1/0263/5848/1005/products/VULKDISOT447046_200x.jpg?v=1586204683 200w, //cdn.shopify.com/s/files/1/0263/5848/1005/products/VULKDISOT447046_400x.jpg?v=1586204683 400w, //cdn.shopify.com/s/files/1/0263/5848/1005/products/VULKDISOT447046_600x.jpg?v=1586204683 600w, //cdn.shopify.com/s/files/1/0263/5848/1005/products/VULKDISOT447046_700x.jpg?v=1586204683 700w, //cdn.shopify.com/s/files/1/0263/5848/1005/products/VULKDISOT447046_800x.jpg?v=1586204683 800w, //cdn.shopify.com/s/files/1/0263/5848/1005/products/VULKDISOT447046_900x.jpg?v=1586204683 900w, //cdn.shopify.com/s/files/1/0263/5848/1005/products/VULKDISOT447046_1000x.jpg?v=1586204683 1000w, //cdn.shopify.com/s/files/1/0263/5848/1005/products/VULKDISOT447046_1200x.jpg?v=1586204683 1200w" alt=""></div>
           <div class="show-products__product__info">
@@ -176,10 +175,10 @@
         </div>
       </div>
     </section>
-    <section>
+    <section id="gallery" class="section">
       <h2>SEGUINOS!</h2>
       <h3>@lookout.arg</h3>
-      <div class="gallery container">
+      <div class="gallery reveal container">
         <div class="gallery-img"><img src="assets/v933-audi-41.jpg" alt=""></div>
         <div class="gallery-img"><img src="assets/v933-audi-41.jpg" alt=""></div>
         <div class="gallery-img"><img src="assets/v933-audi-41.jpg" alt=""></div>
@@ -188,20 +187,18 @@
       </div>
       <a href="" class="btn btn-gallery">INSTAGRAM</a>
     </section>
-    <footer>
+    <footer id="contact" class="section">
       <div class="container">
+        <h2>VISITANOS!</h2>
         <div class="footer-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52422.57475623781!2d-58.30566578648093!3d-34.795602284867215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a329628f552cad%3A0x813d55ba09834999!2sFlorencio%20Varela%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1627503516032!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="true" loading="lazy"></iframe>
         </div>
         <div class="footer-info">
           <div class="footer-info__social">
             <h3>Siguenos</h3>
             <ul class="footer-info__social__list">
               <a href="" class="footer-info__social__list__link" ><i class="fab fa-instagram"></i></a>
-              <a href="" class="footer-info__social__list__link" ><i class="fab fa-instagram"></i></a>
-              <a href="" class="footer-info__social__list__link" ><i class="fab fa-instagram"></i></a>
-              <a href="" class="footer-info__social__list__link" ><i class="fab fa-instagram"></i></a>
-              <a href="" class="footer-info__social__list__link" ><i class="fab fa-instagram"></i></a>
+              <a href="" class="footer-info__social__list__link" ><i class="fab fa-facebook-f"></i></a>
+              <a href="" class="footer-info__social__list__link" ><i class="fab fa-twitter"></i></a>
             </ul>
           </div>
           <div class="footer-info__purchase">
