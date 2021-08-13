@@ -78,7 +78,7 @@ document.addEventListener("click", e=>{
 } )
 
 document.addEventListener("DOMContentLoaded",e=>{
-    rQuery("(max-width:768px)",".footer-map",`<a href="" class="btn">Ver en Google Maps</a>`,`<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52422.57475623781!2d-58.30566578648093!3d-34.795602284867215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a329628f552cad%3A0x813d55ba09834999!2sFlorencio%20Varela%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1627503516032!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="true" loading="lazy"></iframe>`)
+    rQuery("(max-width:768px)",".footer-map",`<a href="" class="btn">Ver Mapa</a>`,`<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52422.57475623781!2d-58.30566578648093!3d-34.795602284867215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a329628f552cad%3A0x813d55ba09834999!2sFlorencio%20Varela%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1627503516032!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="true" loading="lazy"></iframe>`)
 })
 document.addEventListener("scroll", e=>{
     const reveals = document.querySelectorAll(".reveal")
