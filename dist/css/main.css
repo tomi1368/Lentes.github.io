@@ -492,7 +492,6 @@ main h1 {
 }
 @media screen and (max-width: 636px) {
   .show-products__product {
-    justify-self: center;
     max-width: 300px;
   }
 }
@@ -553,6 +552,10 @@ main h1 {
   color: #ffffff;
   padding: 1rem;
   cursor: pointer;
+  transition: transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.show-products__product__info button:hover {
+  transform: scale(1.1);
 }
 
 .testimonial {

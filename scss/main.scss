@@ -326,6 +326,10 @@ main h1{
                 color:v.$main-color;
                 padding:1rem;
                 cursor: pointer;
+                transition: transform .6s cubic-bezier(0.075, 0.82, 0.165, 1);
+                &:hover{
+                    transform: scale(1.1);
+                }
             }
         }
     }
