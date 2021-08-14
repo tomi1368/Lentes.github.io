@@ -342,7 +342,6 @@ main h1{
     overflow: hidden;
     text-align:center;
     margin: 10rem 0;
-    @include m.headerText(1rem);
     &-container{
         height:500%;
         @include m.flexible(column,nowrap,center,center);
@@ -350,6 +349,13 @@ main h1{
             @include m.flexible(column,nowrap,center,center);
             gap: 2rem 0;
             height:100%;
+            p{
+                @include m.headerText(1.1rem);
+                font-weight: 400;
+            }
+            h2{
+                @include m.headerText(.9rem);
+            }
         }
     }
 }

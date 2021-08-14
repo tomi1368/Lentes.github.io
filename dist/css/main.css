@@ -565,12 +565,6 @@ main h1 {
   overflow: hidden;
   text-align: center;
   margin: 10rem 0;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  font-style: normal;
-  transition: transitionSimple(color, 0.3, ease-in-out);
-  text-transform: uppercase;
 }
 .testimonial-container {
   height: 500%;
@@ -588,6 +582,23 @@ main h1 {
   align-content: auto;
   gap: 2rem 0;
   height: 100%;
+}
+.testimonial-container__users p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  font-style: normal;
+  transition: transitionSimple(color, 0.3, ease-in-out);
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.testimonial-container__users h2 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  font-style: normal;
+  transition: transitionSimple(color, 0.3, ease-in-out);
+  text-transform: uppercase;
 }
 
 section {
