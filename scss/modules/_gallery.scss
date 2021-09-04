@@ -1,0 +1,43 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/vars" as v;
+
+section{
+    text-align:center;
+    margin-bottom: 15rem;
+    h2{
+        @include m.headerText(20px);
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+    h3{
+        @include m.headerText(12px);
+        font-weight: 500;
+        letter-spacing:0;
+        text-transform:lowercase;
+        margin-bottom: 30px;
+    }
+    .gallery{
+        @include v.gresponsive(5rem,5rem,center,center);
+        grid-auto-rows: minmax(200px,auto);
+        align-items: stretch;
+        &-img{ 
+            @include m.flexible(row,nowrap,center,center);
+            &:nth-child(2){
+                grid-row: span 2;
+            }
+            @media screen and (min-width:636px ) and (max-width:747px){
+                height:300px;
+            }
+            img{
+                width: 100%;
+                height: 100%;
+            }     
+        }
+    }
+    .btn-gallery{
+        margin: 8rem auto;
+        width:200px;
+        @include m.flexible(row,nowrap,center,center);
+    
+    } 
+}

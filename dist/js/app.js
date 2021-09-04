@@ -1,24 +1,15 @@
-const slider = document.querySelector(".slide-show__slider"),
-  slides = document.querySelectorAll(".slide-show__slider__slide"),
+const slides = document.querySelectorAll(".slide-show__slide"),
   menuHambuger = document.querySelector(".nav-bar__hambuger__line"),
   menuBar = document.querySelector(".nav-bar__list"),
-  infoSlider = document.querySelector(".slide-show__slider__slide__info"),
+  infoSlider = document.querySelector(".slide-show__slide__info"),
   navContainer = document.querySelector(".nav-container"),
   slideMarkers = document.querySelectorAll(".slide-show__buttons__item"),
   imgLogo = document.querySelectorAll(".nav-bar__logo a img"),
   testSlider = document.querySelector(".testimonial-container"),
   testSlides = document.querySelectorAll(".testimonial-container__users");
-//Slider//
-const move = (array) => {
-  for (i = 0; i < array.length; i++) {
-    if (array[i].classList.contains("active")) {
-      array[i].classList.remove("active");
-      i < array.length - 1 ? (nextItem = i + 1) : (nextItem = 0);
-    }
-  }
-  setSlide(nextItem);
-  setActive(array[nextItem]);
-};
+let slideItem = 0;
+//Testimovial//
+
 const move2 = (array) => {
   for (i = 0; i < array.length; i++) {
     if (array[i].classList.contains("active")) {
@@ -29,28 +20,24 @@ const move2 = (array) => {
   setActive(array[nextItem]);
   setSlideTest(nextItem);
 };
-slideMarkers.forEach((mark, i) => {
-  mark.onclick = () => {
-    slideMarkers.forEach((e) => e.classList.remove("active"));
-    setActive(mark);
-    setSlide(i);
-  };
-});
 
-setInterval(() => move(slideMarkers), 5000);
+
+
 setInterval(() => move2(testSlides), 10000);
-const setSlide = (i) => {
-  slider.style.marginLeft = `${-100 * i}%`;
-};
+
+
 const setActive = (el) => {
   el.classList.add("active");
 };
+
 const setSlideTest = (i) => {
     
   testSlides.forEach((e) => (e.style.animation = "none"));
   testSlides[i].style.animation = "fade-in 10s";
   testSlider.style.marginTop = `${i * -400}px`;
 };
+
+//End Testimonial
 const scrollActive = () => {
   const scrollY = window.pageYOffset,
     sections = document.querySelectorAll(".section");
@@ -69,6 +56,35 @@ const scrollActive = () => {
     }
   });
 };
+
+const setSlide = (mark)=>{
+  slides.forEach(slide=>{
+    slide.classList.remove("active-slide");
+  })
+  slideMarkers.forEach(marker=>{
+    marker.classList.remove("active-mark")
+  })
+  slides[mark].classList.add("active-slide");
+  slideMarkers[mark].classList.add("active-mark");
+}
+
+const slideMove = (list,markers)=>{
+  list.forEach(slide=>{
+    slide.classList.remove("active-slide");
+  })
+  markers.forEach(marker=>{
+    marker.classList.remove("active-mark")
+  })
+  list[slideItem].classList.add("active-slide")
+  markers[slideItem].classList.add("active-mark")
+  slideItem++
+  if (slideItem == list.length){
+    slideItem = 0;
+  } 
+
+}
+setInterval(()=>slideMove(slides,slideMarkers),5000)
+
 const rQuery = (mq, sl, cmob, cdesk) => {
   let breakpoint = window.matchMedia(mq);
   const responsive = (e) =>
@@ -81,7 +97,7 @@ const rQuery = (mq, sl, cmob, cdesk) => {
   responsive(breakpoint);
 };
 
-//End Slider
+
 
 //Menu Hambuger
 
@@ -100,6 +116,11 @@ document.addEventListener("click", (e) => {
     menuBar.classList.remove("activo");
     menuHambuger.classList.remove("open");
   }
+  if (e.target.matches(".slide-show__buttons__item")){
+    setSlide(e.target.dataset.id)
+    slideItem = e.target.dataset.id
+  }
+
 });
 
 document.addEventListener("DOMContentLoaded", (e) => {

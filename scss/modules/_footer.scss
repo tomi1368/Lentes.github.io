@@ -1,0 +1,86 @@
+@use "../abstracts/mixins" as m;
+footer{
+    background-color:#efefef;
+    padding:8rem;
+    h2{
+        text-align: center;
+        @include m.headerText(15px);
+        margin-bottom: 4rem;
+        font-weight: 500;
+    }
+    .footer-map{
+        width: 100%;
+        @include m.flexible(row,nowrap,center,center);
+        margin-bottom: 8rem;
+        iframe{
+            min-width: 250px;
+        }
+        @media screen and (max-width:564){
+           margin-bottom:0;
+       }
+    }    
+    .footer-info{
+        width: 100%;
+        @include m.flexible(row,nowrap,space-between,center);
+        @media screen and (max-width: 564px){
+            @include m.flexible(column,nowrap,center,center);
+
+        }
+        &__social{
+            text-align: center;
+            align-self: center;
+            @media screen and (max-width: 564px){
+                padding : 10rem 0;
+            }
+           
+            h3{
+                @include m.headerText(15px);
+                font-weight: 500;
+                margin-bottom:.3rem;
+            }
+            &__list{
+                @include m.flexible(row,wrap,center,center);
+                &__link{
+                    display: block;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    background-color:#fff;
+                    margin-right: 1rem;
+                    color:#000;
+                    font-size:20px;
+                    line-height:30px;
+                    text-align:center;
+                    transition: color .6s cubic-bezier(0.075, 0.82, 0.165, 1), background-color .6s cubic-bezier(0.075, 0.82, 0.165, 1);
+                    &:nth-child(1):hover{
+                        background-color:#e4405f;
+                        color:#fff;
+                    }
+                    &:nth-child(2):hover{
+                        background-color:#3b5999;
+                        color:#fff;
+                    }
+                    &:nth-child(3):hover{
+                        background-color:#1DA1F2;
+                        color:#fff;
+                    }
+                }
+            }
+        }
+        &__purchase{
+            
+            text-align: center;
+            @media screen and (max-width: 564px){
+                margin-bottom: 23px;
+            }
+           
+            h2{
+                @include m.headerText(15px); 
+                font-weight: 500;
+                margin-bottom:.5rem;
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,26 @@
+@use "../abstracts/mixins" as m;
+
+.testimonial{
+    width: 100%;
+    background-color:#efefef;
+    height: 400px;
+    overflow: hidden;
+    text-align:center;
+    margin: 10rem 0;
+    &-container{
+        height:500%;
+        @include m.flexible(column,nowrap,center,center);
+        &__users{
+            @include m.flexible(column,nowrap,center,center);
+            gap: 2rem 0;
+            height:100%;
+            p{
+                @include m.headerText(1.1rem);
+                font-weight: 400;
+            }
+            h2{
+                @include m.headerText(.9rem);
+            }
+        }
+    }
+}
