@@ -22,6 +22,8 @@ section{
         align-items: stretch;
         &-img{ 
             @include m.flexible(row,nowrap,center,center);
+            cursor: pointer;
+            overflow: hidden;
             &:nth-child(2){
                 grid-row: span 2;
             }
@@ -31,6 +33,10 @@ section{
             img{
                 width: 100%;
                 height: 100%;
+                transition: transform .2s ease-in-out;
+                &:hover{
+                    transform: scale(1.1);
+                }
             }     
         }
     }
